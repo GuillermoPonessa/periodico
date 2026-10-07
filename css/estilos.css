@@ -1,0 +1,235 @@
+/* ==== FUENTES LOCALES (carpeta assets/fonts) ==== */
+@font-face { /* Declara la fuente gótica para el título del periódico */
+  font-family: "Fraktur";                                   /* Nombre con el que usaremos la fuente */
+  src: url("../assets/fonts/unifrakturcook-latin-700-normal.woff2") format("woff2"); /* Archivo de la fuente */
+  font-weight: 700;                                         /* Peso (negrita) que cubre este archivo */
+  font-display: swap;                                       /* Muestra texto de respaldo mientras carga */
+}
+@font-face { /* Fuente de texto normal estilo imprenta antigua */
+  font-family: "Fell";                                      /* Nombre interno de la fuente */
+  src: url("../assets/fonts/im-fell-english-latin-400-normal.woff2") format("woff2"); /* Archivo normal */
+  font-style: normal;                                       /* Letra redonda */
+  font-display: swap;                                       /* Evita texto invisible */
+}
+@font-face { /* Versión cursiva de la misma fuente */
+  font-family: "Fell";                                      /* Misma familia que la anterior */
+  src: url("../assets/fonts/im-fell-english-latin-400-italic.woff2") format("woff2"); /* Archivo cursiva */
+  font-style: italic;                                       /* Letra cursiva */
+  font-display: swap;                                       /* Evita texto invisible */
+}
+
+/* ==== VARIABLES DE COLOR Y TIPOGRAFÍA ==== */
+:root { /* Variables globales reutilizables en todo el CSS */
+  --pergamino: #e8dcc0;  /* Fondo de la página, color de pergamino */
+  --papel: #f1e7cf;      /* Fondo más claro para el "papel" del periódico */
+  --tinta: #2b1d12;      /* Color del texto, marrón muy oscuro */
+  --sangre: #7a1e1e;     /* Rojo oscuro para títulos y detalles */
+  --oro: #b8892b;        /* Dorado para bordes y acentos */
+  --bosque: #2f3b2a;     /* Verde oscuro para fondos secundarios */
+  --titulo: "Fraktur", "Old English Text MT", serif; /* Fuente gótica con respaldo */
+  --texto: "Fell", "Palatino Linotype", Georgia, serif; /* Fuente de lectura con respaldo */
+}
+
+/* ==== BASE ==== */
+* { box-sizing: border-box; } /* El padding no agranda las cajas */
+body { /* Estilo general del documento */
+  margin: 0;                         /* Quita márgenes por defecto */
+  background: var(--pergamino);      /* Aplica color pergamino */
+  color: var(--tinta);               /* Color del texto */
+  font-family: var(--texto);         /* Fuente de lectura */
+  font-size: 1.15rem;                /* Tamaño base cómodo */
+  line-height: 1.65;                 /* Interlineado amplio para serif */
+}
+a { color: var(--sangre); }          /* Enlaces en rojo oscuro */
+a:hover { color: var(--oro); }       /* Enlaces dorados al pasar el ratón */
+:focus-visible { outline: 3px solid var(--oro); outline-offset: 2px; } /* Foco visible para teclado */
+
+/* ==== PAPEL DEL PERIÓDICO ==== */
+.hoja { /* Contenedor central que simula la hoja impresa */
+  max-width: 1100px;                 /* Ancho máximo de lectura */
+  margin: 1.5rem auto;               /* Centrado con espacio arriba y abajo */
+  padding: 1.5rem 2rem;              /* Espacio interior */
+  background: var(--papel);          /* Color de papel */
+  border: 4px double var(--tinta);   /* Doble borde estilo imprenta */
+  box-shadow: 0 0 0 6px var(--pergamino), 0 0 0 8px var(--oro); /* Marco dorado exterior */
+}
+
+/* ==== CABECERA (CABEZAL) ==== */
+.cabezal { text-align: center; border-bottom: 3px double var(--tinta); padding-bottom: 1rem; } /* Cabecera centrada con línea doble */
+.cabezal img { width: 64px; height: auto; } /* Tamaño del escudo */
+.cabezal h1 { /* Título principal del periódico */
+  font-family: var(--titulo);        /* Fuente gótica */
+  font-size: clamp(2.6rem, 8vw, 5.2rem); /* Tamaño que se adapta a la pantalla */
+  margin: 0.2rem 0;                  /* Poco espacio vertical */
+  color: var(--sangre);              /* Rojo oscuro */
+  font-weight: 700;                  /* Negrita */
+  line-height: 1.05;                 /* Interlineado ajustado para título */
+}
+.cabezal .lema { font-style: italic; margin: 0; } /* Frase bajo el título, en cursiva */
+.fechador { /* Barra con fecha y número de edición */
+  display: flex;                     /* Coloca elementos en fila */
+  justify-content: space-between;    /* Uno a cada extremo */
+  border-top: 1px solid var(--tinta);/* Línea fina superior */
+  margin-top: 0.8rem;                /* Separación del lema */
+  padding-top: 0.4rem;               /* Espacio bajo la línea */
+  font-size: 0.95rem;                /* Un poco más pequeño */
+}
+
+/* ==== NAVEGACIÓN ==== */
+.menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 2rem; padding: 0.6rem 0; border-bottom: 1px solid var(--tinta); } /* Menú centrado que baja de línea si no cabe */
+.menu a { text-decoration: none; font-size: 1.1rem; padding: 0.1rem 0.3rem; } /* Enlaces sin subrayado */
+.menu a.activo { border-bottom: 3px solid var(--oro); font-weight: bold; } /* Marca la página actual (la pone el JS) */
+
+/* ==== ARTÍCULOS ==== */
+.portada { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-top: 1.5rem; } /* Portada: artículo principal + columna lateral */
+h2 { font-family: var(--titulo); color: var(--sangre); font-size: 2.2rem; line-height: 1.1; margin: 0 0 0.5rem; } /* Titulares de artículo */
+h3 { color: var(--bosque); font-size: 1.35rem; margin: 0 0 0.3rem; border-bottom: 1px solid var(--oro); } /* Subtítulos con filete dorado */
+.autor { font-style: italic; font-size: 0.95rem; margin-top: 0; } /* Línea de autor/fecha */
+.columnas { column-count: 2; column-gap: 2rem; column-rule: 1px solid var(--tinta); text-align: justify; hyphens: auto; } /* Texto a dos columnas como un diario */
+.portada .columnas p:first-of-type::first-letter { /* Letra capital iluminada, solo en el artículo de portada */
+  font-family: var(--titulo);        /* Fuente gótica */
+  font-size: 4.2rem;                 /* Muy grande */
+  float: left;                       /* El texto la rodea */
+  line-height: 0.8;                  /* Ajuste vertical */
+  padding: 0.25rem 0.5rem 0 0;       /* Espacio a la derecha */
+  color: var(--sangre);              /* Rojo oscuro */
+}
+.lateral { border-left: 1px solid var(--tinta); padding-left: 1.5rem; } /* Columna lateral separada por filete */
+.separador { display: block; margin: 1.5rem auto; max-width: 100%; } /* Ornamento centrado entre secciones */
+
+/* ==== BIOGRAFÍAS: FILTROS Y FICHAS ==== */
+.filtros { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0; } /* Fila de botones */
+.filtros button { /* Botones de filtro por siglo */
+  font-family: var(--texto);         /* Misma tipografía del sitio */
+  font-size: 1rem;                   /* Tamaño normal */
+  background: transparent;           /* Sin relleno */
+  border: 2px solid var(--sangre);   /* Borde rojo */
+  color: var(--sangre);              /* Texto rojo */
+  padding: 0.3rem 0.9rem;            /* Espacio interno */
+  cursor: pointer;                   /* Mano al pasar encima */
+}
+.filtros button[aria-pressed="true"] { background: var(--sangre); color: var(--papel); } /* Botón activo relleno */
+.ficha { break-inside: avoid; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px dotted var(--tinta); } /* Cada biografía no se parte entre columnas */
+.ficha[hidden] { display: none; }    /* Oculta fichas filtradas */
+.fechas { color: var(--oro); font-weight: bold; } /* Años de vida resaltados */
+
+/* ==== PIE ==== */
+.pie { text-align: center; border-top: 3px double var(--tinta); margin-top: 2rem; padding-top: 1rem; font-size: 0.95rem; } /* Pie de página */
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } } /* Respeta quienes piden menos animación */
+
+/* ==== MODO VELA (oscuro): se activa con data-tema="vela" en <html> (lo pone tema.js) ==== */
+:root[data-tema="vela"] { /* Redefine las variables de color */
+  --pergamino: #1a120b;  /* Fondo exterior, marrón casi negro */
+  --papel: #2a1d12;      /* Hoja un poco más clara */
+  --tinta: #eadfc4;      /* Texto color pergamino */
+  --sangre: #e0775f;     /* Rojo aclarado para que se lea sobre oscuro */
+  --oro: #d9a640;        /* Dorado más luminoso */
+  --bosque: #a9c29a;     /* Verde claro para subtítulos */
+}
+:root[data-tema="vela"] .filtros button[aria-pressed="true"] { color: #1a120b; } /* Texto oscuro sobre botón relleno */
+:root[data-tema="vela"] .cabezal img { filter: brightness(1.15); } /* Escudo algo más brillante */
+body, .hoja { transition: background-color 0.3s, color 0.3s; } /* Cambio de tema suave */
+
+/* ==== HERRAMIENTAS DE LECTURA ==== */
+.herramientas { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 0.5rem 0; font-size: 0.95rem; } /* Fila de botones bajo el menú */
+.herramientas button { font-family: var(--texto); font-size: 0.95rem; background: transparent; color: var(--tinta); border: 1px solid var(--tinta); padding: 0.1rem 0.7rem; cursor: pointer; } /* Botones pequeños */
+.herramientas button:hover { border-color: var(--oro); color: var(--oro); } /* Resalte al pasar el ratón */
+
+/* ==== BARRA DE PROGRESO ==== */
+.barra-lectura { position: fixed; top: 0; left: 0; height: 4px; width: 0; background: var(--oro); z-index: 10; } /* Línea fija arriba, crece con JS */
+
+/* ==== BOTÓN SUBIR ==== */
+.subir { position: fixed; right: 1rem; bottom: 1rem; font-family: var(--texto); background: var(--sangre); color: var(--papel); border: 2px solid var(--oro); padding: 0.4rem 0.9rem; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.25s; } /* Oculto hasta bajar */
+.subir.visible { opacity: 1; pointer-events: auto; } /* Visible cuando JS agrega la clase */
+
+/* ==== BUSCADOR ==== */
+.buscador { width: 100%; max-width: 420px; font-family: var(--texto); font-size: 1.05rem; padding: 0.4rem 0.7rem; background: var(--papel); color: var(--tinta); border: 2px solid var(--tinta); } /* Caja de búsqueda */
+#resultados { font-style: italic; margin: 0.3rem 0 1rem; } /* Texto con el conteo de fichas */
+
+/* ==== AJUSTES GENERALES PARA TÁCTIL ==== */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; } /* Evita que el celular agrande el texto por su cuenta */
+a, button, input { -webkit-tap-highlight-color: transparent; touch-action: manipulation; } /* Quita el destello gris y el zoom por doble toque */
+img { max-width: 100%; height: auto; } /* Ninguna imagen puede desbordar la pantalla */
+body { overflow-wrap: break-word; } /* Corta palabras larguísimas en vez de ensanchar la página */
+
+/* ==== TABLETA (hasta 860px): portada en una columna ==== */
+@media (max-width: 860px) {
+  .portada { grid-template-columns: 1fr; } /* Artículo arriba y lateral debajo */
+  .lateral { border-left: none; padding-left: 0; border-top: 1px solid var(--tinta); padding-top: 1rem; } /* El filete pasa arriba */
+}
+
+/* ==== CELULAR (hasta 760px) ==== */
+@media (max-width: 760px) {
+  body { font-size: 1.08rem; line-height: 1.6; } /* Letra algo menor para que entren más palabras por línea */
+  .hoja { /* La hoja ocupa casi todo el ancho */
+    margin: 6px;                                   /* Pequeño borde de pergamino alrededor */
+    padding: 0.9rem 1rem 1.2rem;                   /* Espacio interior moderado */
+    border-width: 3px;                             /* Borde doble más fino */
+    box-shadow: none;                              /* Quita el marco dorado exterior que robaba ancho */
+    padding-left: max(1rem, env(safe-area-inset-left));   /* Respeta el notch en horizontal */
+    padding-right: max(1rem, env(safe-area-inset-right)); /* Respeta el notch en horizontal */
+  }
+  .cabezal { padding-bottom: 0.6rem; }             /* Cabecera más compacta */
+  .cabezal img { width: 44px; }                    /* Escudo más pequeño */
+  .cabezal h1 { font-size: clamp(2.4rem, 13vw, 3.2rem); } /* Título que escala con el ancho */
+  .cabezal .lema { font-size: 0.95rem; line-height: 1.3; } /* Lema más chico */
+  .fechador { justify-content: center; text-align: center; font-size: 0.9rem; margin-top: 0.5rem; } /* Fecha centrada */
+  .fechador span:last-child { display: none; }     /* Oculta "Edición ..." para no ocupar otra línea */
+
+  .menu { /* Menú fijo arriba al hacer scroll, estilo barra de app */
+    position: sticky;                              /* Se queda pegado al borde superior */
+    top: 4px;                                      /* Debajo de la barra de progreso */
+    z-index: 5;                                    /* Por encima del contenido */
+    background: var(--papel);                      /* Fondo opaco para tapar el texto que pasa debajo */
+    gap: 0; justify-content: space-between;        /* Tres enlaces repartidos en todo el ancho */
+    border-top: 1px solid var(--tinta);            /* Línea superior */
+  }
+  .menu a { flex: 1; text-align: center; min-height: 48px; display: flex; align-items: center; justify-content: center; padding: 0 0.2rem; } /* Zona táctil de 48px */
+  .menu a.activo { border-bottom: 3px solid var(--oro); } /* Marca de página actual */
+
+  .herramientas { gap: 0.6rem; padding: 0.6rem 0; } /* Separación para dedos */
+  .herramientas button { min-height: 44px; min-width: 44px; padding: 0 0.9rem; font-size: 1rem; } /* Botones de 44px (mínimo táctil) */
+
+  h2 { font-size: 1.9rem; }                        /* Titulares algo menores */
+  .portada { margin-top: 1rem; gap: 1.2rem; }     /* Menos aire en portada */
+  .columnas { column-count: 1; text-align: left; hyphens: auto; -webkit-hyphens: auto; } /* Una columna, alineada a la izquierda: sin huecos feos */
+  .portada .columnas p:first-of-type::first-letter { font-size: 3.4rem; padding: 0.2rem 0.4rem 0 0; } /* Capital más chica */
+
+  .filtros { /* Filtros en una tira que se desliza con el dedo */
+    flex-wrap: nowrap;                             /* Todos en una línea */
+    overflow-x: auto;                              /* Se desliza horizontalmente */
+    scroll-snap-type: x proximity;                 /* Se acomoda al soltar */
+    scroll-padding-inline: 1rem;                   /* El primer chip queda alineado con el texto, no pegado al borde */
+    margin: 0.6rem -1rem 1rem;                     /* Llega hasta los bordes de la hoja */
+    padding: 0.2rem 1rem;                          /* Mantiene el margen interno */
+    scrollbar-width: none;                         /* Oculta la barra de scroll (Firefox) */
+  }
+  .filtros::-webkit-scrollbar { display: none; }   /* Oculta la barra de scroll (Chrome/Safari) */
+  .filtros button { flex: 0 0 auto; min-height: 44px; scroll-snap-align: start; white-space: nowrap; } /* Chips de 44px que no se encogen */
+  .buscador { max-width: none; min-height: 48px; font-size: 1.05rem; } /* Buscador a todo el ancho */
+
+  .subir { /* Botón subir cómodo para el pulgar */
+    right: max(0.8rem, env(safe-area-inset-right)); /* Respeta el notch */
+    bottom: max(0.8rem, env(safe-area-inset-bottom)); /* Respeta la barra inferior del iPhone */
+    min-height: 48px; min-width: 48px;             /* Zona táctil grande */
+  }
+  .pie { padding-bottom: calc(1rem + env(safe-area-inset-bottom)); } /* Espacio extra bajo el pie */
+}
+
+/* ==== CELULARES MUY ANGOSTOS (hasta 360px) ==== */
+@media (max-width: 360px) {
+  .hoja { padding-left: 0.8rem; padding-right: 0.8rem; } /* Un poco más de espacio para el texto */
+  .menu a { font-size: 1rem; }                     /* Enlaces algo menores para que quepan */
+  .filtros { margin-left: -0.8rem; margin-right: -0.8rem; padding-left: 0.8rem; padding-right: 0.8rem; } /* Ajusta la tira */
+}
+
+/* ==== ZONAS TÁCTILES EN CUALQUIER PANTALLA TÁCTIL (tabletas incluidas) ==== */
+@media (pointer: coarse) {
+  .menu a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.8rem; } /* Enlaces del menú de 44px */
+  .herramientas button { min-height: 44px; min-width: 44px; padding: 0 0.9rem; } /* Botones de herramientas de 44px */
+  .filtros button { min-height: 44px; }            /* Filtros de 44px */
+  .buscador { min-height: 48px; }                  /* Buscador cómodo */
+  .lateral p a { display: inline-block; padding: 0.7rem 0; } /* Enlaces de la columna lateral de 44px de alto */
+}
+@media (pointer: coarse) { .subir { min-height: 48px; min-width: 48px; } } /* Botón subir con zona táctil de 48px también en tabletas */

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- Declara que el documento es HTML5 -->
+<html lang="es">
+<!-- Raíz del documento, idioma español -->
+<head>
+  <!-- Información interna de la página (no visible) -->
+  <meta charset="UTF-8">
+  <!-- Codificación que permite tildes y ñ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Adaptable a móviles y usa toda la pantalla (notch) -->
+  <meta name="theme-color" content="#e8dcc0">
+  <!-- Color de la barra del navegador en el celular (tema.js lo cambia en modo vela) -->
+  <title>Crónicas · El Códice</title>
+  <!-- Título que aparece en la pestaña del navegador -->
+  <link rel="stylesheet" href="../css/estilos.css">
+  <!-- Enlaza la hoja de estilos -->
+  <link rel="icon" href="../assets/img/escudo.svg" type="image/svg+xml">
+  <!-- Icono de la pestaña -->
+  <script src="../js/tema.js"></script>
+  <!-- Aplica el tema guardado antes de dibujar, así no parpadea -->
+  <script src="../js/app.js" defer></script>
+  <!-- Núcleo: fecha, menú y filtros (debe ir primero) -->
+  <script src="../js/buscador.js" defer></script>
+  <!-- Buscador de biografías -->
+  <script src="../js/lectura.js" defer></script>
+  <!-- Barra de progreso, tamaño de letra y botón subir -->
+</head>
+<body>
+  <!-- Contenido visible -->
+  <div class="hoja">
+    <!-- Hoja principal con marco de periódico -->
+    <header class="cabezal">
+      <!-- Cabecera con el nombre del periódico -->
+      <img src="../assets/img/escudo.svg" alt="Escudo del periódico: un libro abierto sobre una cruz dorada">
+      <!-- Escudo heráldico -->
+      <h1>El Códice</h1>
+      <!-- Nombre del periódico -->
+      <p class="lema">Gazeta de letras, cronistas y vidas de otro tiempo</p>
+      <!-- Lema del periódico -->
+      <div class="fechador">
+        <!-- Barra con fecha y edición -->
+        <span id="fecha">Anno Domini</span>
+        <!-- La fecha la completa app.js -->
+        <span>Edición Crónicas</span>
+        <!-- Nombre de la edición actual -->
+      </div>
+    </header>
+    <nav class="menu" aria-label="Secciones">
+      <!-- Menú de navegación -->
+      <a href="../index.html">Portada</a>
+      <!-- Enlace a la portada -->
+      <a href="biografias.html">Biografías</a>
+      <!-- Enlace a las biografías -->
+      <a href="cronicas.html">Crónicas</a>
+      <!-- Enlace a las crónicas -->
+    </nav>
+    <div class="herramientas" aria-label="Ayudas de lectura">
+      <!-- Controles manejados por tema.js y lectura.js -->
+      <button type="button" id="btn-tema">Modo vela</button>
+      <!-- Cambia entre modo claro y oscuro -->
+      <button type="button" id="letra-menos" aria-label="Reducir letra">A-</button>
+      <!-- Achica el texto -->
+      <button type="button" id="letra-mas" aria-label="Aumentar letra">A+</button>
+      <!-- Agranda el texto -->
+    </div>
+    <main>
+      <!-- Contenido principal de cada página -->
+      <h2>Crónicas</h2>
+      <!-- Título de la sección -->
+      <div class="columnas">
+        <!-- Artículos a dos columnas -->
+        <article class="ficha">
+          <!-- Primer artículo -->
+          <h3>Un libro, meses de trabajo</h3>
+          <!-- Titular -->
+          <p>Antes de la imprenta, cada libro se copiaba a mano en el scriptorium de un monasterio. El pergamino se hacía con piel de animal, la tinta con agallas de roble y los títulos se adornaban con letras capitales pintadas, a veces con pan de oro.</p>
+          <!-- Texto -->
+        </article>
+        <article class="ficha">
+          <!-- Segundo artículo -->
+          <h3>El Cantar de mio Cid</h3>
+          <!-- Titular -->
+          <p>Poema épico castellano de autor desconocido, conservado en un único manuscrito del siglo XIV. Narra el destierro y las hazañas de Rodrigo Díaz de Vivar y es la obra más antigua extensa de la literatura española.</p>
+          <!-- Texto -->
+        </article>
+        <article class="ficha">
+          <!-- Tercer artículo -->
+          <h3>Los juglares y los clérigos</h3>
+          <!-- Titular -->
+          <p>La literatura medieval vivió en dos mundos: los juglares recitaban en plazas y castillos, y los clérigos escribían con intención didáctica. Los dos estilos conviven y se influyen durante siglos.</p>
+          <!-- Texto -->
+        </article>
+      </div>
+      <img class="separador" src="../assets/img/ornamento.svg" alt="" role="presentation">
+      <!-- Ornamento decorativo separador -->
+    </main>
+    <footer class="pie">
+      <!-- Pie de página -->
+      <p>Impreso en el scriptorium digital. Textos de divulgación con fines educativos.</p>
+      <!-- Nota al pie -->
+    </footer>
+  </div>
+</body>
+</html>

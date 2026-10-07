@@ -1,0 +1,9 @@
+<!-- Escudo heráldico decorativo (SVG): sirve de emblema en la cabecera -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120">
+  <!-- Forma del escudo con borde dorado y fondo rojo oscuro -->
+  <path d="M8 8 H92 V60 C92 92 60 110 50 116 C40 110 8 92 8 60 Z" fill="#7a1e1e" stroke="#b8892b" stroke-width="4"/>
+  <!-- Cruz dorada que divide el escudo en cuatro cuarteles -->
+  <path d="M50 12 V112 M10 52 H90" stroke="#b8892b" stroke-width="5"/>
+  <!-- Libro abierto (símbolo de la literatura) en el centro -->
+  <path d="M30 40 Q40 34 50 40 Q60 34 70 40 V66 Q60 60 50 66 Q40 60 30 66 Z" fill="#e8dcc0" stroke="#2b1d12" stroke-width="2"/>
+</svg>

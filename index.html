@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- Declara que el documento es HTML5 -->
+<html lang="es">
+<!-- Raíz del documento, idioma español -->
+<head>
+  <!-- Información interna de la página (no visible) -->
+  <meta charset="UTF-8">
+  <!-- Codificación que permite tildes y ñ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Adaptable a móviles y usa toda la pantalla (notch) -->
+  <meta name="theme-color" content="#e8dcc0">
+  <!-- Color de la barra del navegador en el celular (tema.js lo cambia en modo vela) -->
+  <title>Portada · El Códice</title>
+  <!-- Título que aparece en la pestaña del navegador -->
+  <link rel="stylesheet" href="css/estilos.css">
+  <!-- Enlaza la hoja de estilos -->
+  <link rel="icon" href="assets/img/escudo.svg" type="image/svg+xml">
+  <!-- Icono de la pestaña -->
+  <script src="js/tema.js"></script>
+  <!-- Aplica el tema guardado antes de dibujar, así no parpadea -->
+  <script src="js/app.js" defer></script>
+  <!-- Núcleo: fecha, menú y filtros (debe ir primero) -->
+  <script src="js/buscador.js" defer></script>
+  <!-- Buscador de biografías -->
+  <script src="js/lectura.js" defer></script>
+  <!-- Barra de progreso, tamaño de letra y botón subir -->
+</head>
+<body>
+  <!-- Contenido visible -->
+  <div class="hoja">
+    <!-- Hoja principal con marco de periódico -->
+    <header class="cabezal">
+      <!-- Cabecera con el nombre del periódico -->
+      <img src="assets/img/escudo.svg" alt="Escudo del periódico: un libro abierto sobre una cruz dorada">
+      <!-- Escudo heráldico -->
+      <h1>El Códice</h1>
+      <!-- Nombre del periódico -->
+      <p class="lema">Gazeta de letras, cronistas y vidas de otro tiempo</p>
+      <!-- Lema del periódico -->
+      <div class="fechador">
+        <!-- Barra con fecha y edición -->
+        <span id="fecha">Anno Domini</span>
+        <!-- La fecha la completa app.js -->
+        <span>Edición Portada</span>
+        <!-- Nombre de la edición actual -->
+      </div>
+    </header>
+    <nav class="menu" aria-label="Secciones">
+      <!-- Menú de navegación -->
+      <a href="index.html">Portada</a>
+      <!-- Enlace a la portada -->
+      <a href="pags/biografias.html">Biografías</a>
+      <!-- Enlace a las biografías -->
+      <a href="pags/cronicas.html">Crónicas</a>
+      <!-- Enlace a las crónicas -->
+    </nav>
+    <div class="herramientas" aria-label="Ayudas de lectura">
+      <!-- Controles manejados por tema.js y lectura.js -->
+      <button type="button" id="btn-tema">Modo vela</button>
+      <!-- Cambia entre modo claro y oscuro -->
+      <button type="button" id="letra-menos" aria-label="Reducir letra">A-</button>
+      <!-- Achica el texto -->
+      <button type="button" id="letra-mas" aria-label="Aumentar letra">A+</button>
+      <!-- Agranda el texto -->
+    </div>
+    <main>
+      <!-- Contenido principal de cada página -->
+      <section class="portada">
+        <!-- Rejilla: artículo principal + lateral -->
+        <article>
+          <!-- Artículo principal -->
+          <h2>El monje que dio voz a la lengua del pueblo</h2>
+          <!-- Titular principal -->
+          <p class="autor">Por la redacción · Crónica de portada</p>
+          <!-- Firma -->
+          <div class="columnas">
+            <!-- Texto a dos columnas -->
+            <p>En los siglos medievales, escribir era un oficio de pocos. Los copistas pasaban jornadas enteras inclinados sobre el pergamino, y cada libro era una obra única que podía tardar meses en terminarse. Sin embargo, fuera de los monasterios la gente cantaba, recitaba y contaba historias en las lenguas que hablaba a diario.</p>
+            <!-- Párrafo con letra capital -->
+            <p>Poco a poco los autores empezaron a escribir en esas lenguas y no solo en latín. Dante en toscano, Chaucer en inglés y Berceo en castellano llevaron al papel el habla de la calle, y con ello ampliaron el público de la literatura.</p>
+            <!-- Segundo párrafo -->
+            <p>Esta gazeta reúne sus vidas y sus obras. Visita la sección de biografías para conocer a los autores, o las crónicas para leer sobre los libros que marcaron la época.</p>
+            <!-- Tercer párrafo -->
+          </div>
+        </article>
+        <aside class="lateral">
+          <!-- Columna lateral -->
+          <h3>Hoy en el códice</h3>
+          <!-- Título lateral -->
+          <p>Cinco biografías de poetas, cronistas y místicas, ordenadas por siglo.</p>
+          <!-- Resumen biografías -->
+          <p><a href="pags/biografias.html">Leer biografías</a></p>
+          <!-- Enlace a biografías -->
+          <h3>Del scriptorium</h3>
+          <!-- Título lateral 2 -->
+          <p>Cómo se fabricaba un libro antes de la imprenta.</p>
+          <!-- Resumen crónica -->
+          <p><a href="pags/cronicas.html">Leer crónicas</a></p>
+          <!-- Enlace a crónicas -->
+        </aside>
+      </section>
+      <img class="separador" src="assets/img/ornamento.svg" alt="" role="presentation">
+      <!-- Ornamento decorativo separador -->
+    </main>
+    <footer class="pie">
+      <!-- Pie de página -->
+      <p>Impreso en el scriptorium digital. Textos de divulgación con fines educativos.</p>
+      <!-- Nota al pie -->
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- Declara que el documento es HTML5 -->
+<html lang="es">
+<!-- Raíz del documento, idioma español -->
+<head>
+  <!-- Información interna de la página (no visible) -->
+  <meta charset="UTF-8">
+  <!-- Codificación que permite tildes y ñ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Adaptable a móviles y usa toda la pantalla (notch) -->
+  <meta name="theme-color" content="#e8dcc0">
+  <!-- Color de la barra del navegador en el celular (tema.js lo cambia en modo vela) -->
+  <title>Biografías · El Códice</title>
+  <!-- Título que aparece en la pestaña del navegador -->
+  <link rel="stylesheet" href="../css/estilos.css">
+  <!-- Enlaza la hoja de estilos -->
+  <link rel="icon" href="../assets/img/escudo.svg" type="image/svg+xml">
+  <!-- Icono de la pestaña -->
+  <script src="../js/tema.js"></script>
+  <!-- Aplica el tema guardado antes de dibujar, así no parpadea -->
+  <script src="../js/app.js" defer></script>
+  <!-- Núcleo: fecha, menú y filtros (debe ir primero) -->
+  <script src="../js/buscador.js" defer></script>
+  <!-- Buscador de biografías -->
+  <script src="../js/lectura.js" defer></script>
+  <!-- Barra de progreso, tamaño de letra y botón subir -->
+</head>
+<body>
+  <!-- Contenido visible -->
+  <div class="hoja">
+    <!-- Hoja principal con marco de periódico -->
+    <header class="cabezal">
+      <!-- Cabecera con el nombre del periódico -->
+      <img src="../assets/img/escudo.svg" alt="Escudo del periódico: un libro abierto sobre una cruz dorada">
+      <!-- Escudo heráldico -->
+      <h1>El Códice</h1>
+      <!-- Nombre del periódico -->
+      <p class="lema">Gazeta de letras, cronistas y vidas de otro tiempo</p>
+      <!-- Lema del periódico -->
+      <div class="fechador">
+        <!-- Barra con fecha y edición -->
+        <span id="fecha">Anno Domini</span>
+        <!-- La fecha la completa app.js -->
+        <span>Edición Biografías</span>
+        <!-- Nombre de la edición actual -->
+      </div>
+    </header>
+    <nav class="menu" aria-label="Secciones">
+      <!-- Menú de navegación -->
+      <a href="../index.html">Portada</a>
+      <!-- Enlace a la portada -->
+      <a href="biografias.html">Biografías</a>
+      <!-- Enlace a las biografías -->
+      <a href="cronicas.html">Crónicas</a>
+      <!-- Enlace a las crónicas -->
+    </nav>
+    <div class="herramientas" aria-label="Ayudas de lectura">
+      <!-- Controles manejados por tema.js y lectura.js -->
+      <button type="button" id="btn-tema">Modo vela</button>
+      <!-- Cambia entre modo claro y oscuro -->
+      <button type="button" id="letra-menos" aria-label="Reducir letra">A-</button>
+      <!-- Achica el texto -->
+      <button type="button" id="letra-mas" aria-label="Aumentar letra">A+</button>
+      <!-- Agranda el texto -->
+    </div>
+    <main>
+      <!-- Contenido principal de cada página -->
+      <h2>Biografías</h2>
+      <!-- Título de la sección -->
+      <p>Elige un siglo para filtrar las fichas.</p>
+      <!-- Instrucción de uso del filtro -->
+      <input type="search" id="buscar" class="buscador" placeholder="Buscar por nombre u obra" aria-label="Buscar biografías">
+      <!-- Caja de búsqueda controlada por buscador.js -->
+      <p id="resultados" aria-live="polite"></p>
+      <!-- Aquí buscador.js escribe cuántas fichas coinciden -->
+      <div class="filtros" role="group" aria-label="Filtrar por siglo">
+        <!-- Botones que controla app.js -->
+        <button type="button" data-siglo="todos" aria-pressed="true">Todos</button>
+        <!-- Muestra todas las fichas -->
+        <button type="button" data-siglo="XII" aria-pressed="false">Siglo XII</button>
+        <!-- Filtra siglo XII -->
+        <button type="button" data-siglo="XIII" aria-pressed="false">Siglo XIII</button>
+        <!-- Filtra siglo XIII -->
+        <button type="button" data-siglo="XIV" aria-pressed="false">Siglo XIV</button>
+        <!-- Filtra siglo XIV -->
+        <button type="button" data-siglo="XV" aria-pressed="false">Siglo XV</button>
+        <!-- Filtra siglo XV -->
+      </div>
+      <div class="columnas">
+        <!-- Fichas a dos columnas -->
+        <article class="ficha" data-siglo="XII">
+          <!-- Ficha biográfica del siglo XII -->
+          <h3>Hildegarda de Bingen</h3>
+          <!-- Nombre del autor -->
+          <p class="fechas">1098 – 1179</p>
+          <!-- Años de vida -->
+          <p>Abadesa alemana, compositora, escritora y estudiosa de la medicina natural. Sus libros de visiones, como el Scivias, y su música sacra la convirtieron en una de las figuras más influyentes de su siglo.</p>
+          <!-- Resumen de su vida y obra -->
+        </article>
+        <article class="ficha" data-siglo="XIII">
+          <!-- Ficha biográfica del siglo XIII -->
+          <h3>Gonzalo de Berceo</h3>
+          <!-- Nombre del autor -->
+          <p class="fechas">c. 1198 – c. 1264</p>
+          <!-- Años de vida -->
+          <p>Clérigo riojano y primer poeta castellano conocido por nombre. Escribió en cuaderna vía vidas de santos y milagros de la Virgen, como los Milagros de Nuestra Señora, en un lenguaje cercano al pueblo.</p>
+          <!-- Resumen de su vida y obra -->
+        </article>
+        <article class="ficha" data-siglo="XIII">
+          <!-- Ficha biográfica del siglo XIII -->
+          <h3>Dante Alighieri</h3>
+          <!-- Nombre del autor -->
+          <p class="fechas">1265 – 1321</p>
+          <!-- Años de vida -->
+          <p>Poeta florentino, desterrado de su ciudad por motivos políticos. Su Divina Comedia, escrita en toscano, recorre infierno, purgatorio y paraíso y fijó las bases de la lengua italiana literaria.</p>
+          <!-- Resumen de su vida y obra -->
+        </article>
+        <article class="ficha" data-siglo="XIV">
+          <!-- Ficha biográfica del siglo XIV -->
+          <h3>Geoffrey Chaucer</h3>
+          <!-- Nombre del autor -->
+          <p class="fechas">c. 1343 – 1400</p>
+          <!-- Años de vida -->
+          <p>Funcionario y poeta inglés. Sus Cuentos de Canterbury reúnen a peregrinos de todos los oficios que se cuentan historias en el camino, y se escribieron en inglés medio.</p>
+          <!-- Resumen de su vida y obra -->
+        </article>
+        <article class="ficha" data-siglo="XV">
+          <!-- Ficha biográfica del siglo XV -->
+          <h3>Cristina de Pizán</h3>
+          <!-- Nombre del autor -->
+          <p class="fechas">1364 – c. 1430</p>
+          <!-- Años de vida -->
+          <p>Escritora nacida en Venecia y activa en la corte francesa. Vivió de su pluma tras quedar viuda y defendió la dignidad de las mujeres en La ciudad de las damas.</p>
+          <!-- Resumen de su vida y obra -->
+        </article>
+      </div>
+      <img class="separador" src="../assets/img/ornamento.svg" alt="" role="presentation">
+      <!-- Ornamento decorativo separador -->
+    </main>
+    <footer class="pie">
+      <!-- Pie de página -->
+      <p>Impreso en el scriptorium digital. Textos de divulgación con fines educativos.</p>
+      <!-- Nota al pie -->
+    </footer>
+  </div>
+</body>
+</html>
